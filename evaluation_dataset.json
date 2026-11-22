@@ -1,0 +1,174 @@
+[
+    {
+        "question": "What is supply chain management?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "What activities are involved in supply chain management?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "What is inventory management?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_1"
+        ]
+    },
+    {
+        "question": "Which products are included in the inventory?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the reorder level for Soap?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the reorder level for Shampoo?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the reorder level for Detergent?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the reorder level for Toothpaste?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the reorder level for Cooking Oil?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "What should happen when stock reaches the reorder level?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_1"
+        ]
+    },
+    {
+        "question": "When should replenishment be initiated?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_1"
+        ]
+    },
+    {
+        "question": "Which warehouse locations does the company operate?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What are the responsibilities of warehouses?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "How are suppliers evaluated?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "What factors are considered in supplier management?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "What is demand planning?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "Which factors are used to estimate future product requirements?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    },
+    {
+        "question": "How should inventory be monitored?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_1"
+        ]
+    },
+    {
+        "question": "What should happen to low-stock products?",
+        "relevant_docs": [
+            "doc_0",
+            "doc_1"
+        ]
+    },
+    {
+        "question": "What is the available stock of Soap?",
+        "relevant_docs": [
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "Which warehouse stores Shampoo?",
+        "relevant_docs": [
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What is the available stock of Detergent?",
+        "relevant_docs": [
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "Which products have stock below their reorder level?",
+        "relevant_docs": [
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "What inventory details are recorded in the spreadsheet?",
+        "relevant_docs": [
+            "doc_2",
+            "doc_3"
+        ]
+    },
+    {
+        "question": "How does effective supply chain management benefit a company?",
+        "relevant_docs": [
+            "doc_0"
+        ]
+    }
+]

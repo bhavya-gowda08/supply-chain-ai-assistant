@@ -1,0 +1,5 @@
+product_id,product_name,warehouse,available_stock,reorder_level
+P101,Soap,Bangalore,500,100
+P102,Shampoo,Mysore,300,80
+P103,Detergent,Chennai,50,100
+P104,Toothpaste,Bangalore,400,100

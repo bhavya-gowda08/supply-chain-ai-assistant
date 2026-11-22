@@ -1,0 +1,12 @@
+.env
+venv/
+__pycache__/
+*.pyc
+*.db
+.vscode/
+data/
+data/parent_store.json
+data/document_versions.json
+documents/archive/
+documents/uploaded_docs/
+reports/

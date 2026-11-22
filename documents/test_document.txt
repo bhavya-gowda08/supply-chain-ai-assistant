@@ -1,0 +1,8 @@
+Supply Chain Inventory Policy
+
+Products should be monitored regularly.
+
+When available stock reaches the reorder level,
+a replenishment request should be initiated.
+
+Warehouse managers should review inventory levels regularly.

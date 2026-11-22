@@ -1,0 +1,3 @@
+Model,Average Precision,Average Retrieval Time
+all-MiniLM-L6-v2,0.8666666666666666,0.00625767707824707
+all-mpnet-base-v2,0.8666666666666666,0.006419515609741211
