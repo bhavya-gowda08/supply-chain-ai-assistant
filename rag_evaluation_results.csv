@@ -1,0 +1,12 @@
+Question,Detected Intent,Answer,Matched Keywords,Answer Relevance Score,Citation Count,Response Time (seconds),Status
+What should happen when stock reaches the reorder level?,sql_analytics,"Based on the provided database result, there is no information or instruction indicating what action should be taken when stock reaches the reorder level.",1,0.5,0,2.1204,Success
+What is the purpose of monitoring warehouse inventory?,supply_chain_rag,"Based on the provided documents, the purpose of the inventory reorder policy is to explain when a replenishment request should be initiated for products held in the organization's warehouses, helping to maintain stock availability and support consistent inventory decisions [1, 2].",3,1.0,2,4.4165,Success
+What information is available about inventory products?,supply_chain_rag,"Based on the provided documents, specific inventory products are not detailed, but illustrative example products are mentioned in the policy's reorder trigger examples: Soap (with an illustrative available stock of 90 and a reorder level of 100) and Shampoo (with an illustrative available stock of 120 and a reorder level of 80) [1, 2]. For actual use, the policy notes that you must refer to the product's available stock and reorder level in the Supply Chain database [1, 2].",2,0.6667,2,2.6368,Success
+What details are recorded in the inventory spreadsheet?,supply_chain_rag,"Based on the provided documents, there is no mention of an inventory spreadsheet or the specific details recorded within one. The documents only reference checking a product's available stock and reorder level in the Supply Chain database [1, 2].",2,0.6667,2,2.3519,Success
+What information is available in the sales data?,sql_analytics,"Based on the sales data, the following information is available:
+
+* **Sale ID 1:** Soap | Quantity Sold: 100 | Date: 2026-11-01 | Total Amount: 4000.0
+* **Sale ID 2:** Shampoo | Quantity Sold: 50 | Date: 2026-11-02 | Total Amount: 6000.0
+* **Sale ID 3:** Detergent | Quantity Sold: 80 | Date: 2026-11-03 | Total Amount: 7200.0
+* **Sale ID 4:** Toothpaste | Quantity Sold: 60 | Date: 2026-11-04 | Total Amount: 3900.0
+* **Sale ID 5:** Cooking Oil | Quantity Sold: 40 | Date: 2026-11-05 | Total Amount: 6000.0",3,1.0,0,1.4331,Success

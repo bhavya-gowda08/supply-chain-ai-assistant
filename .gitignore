@@ -10,3 +10,6 @@ data/document_versions.json
 documents/archive/
 documents/uploaded_docs/
 reports/
+
+chroma_test/
+uploads/

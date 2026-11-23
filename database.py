@@ -1,40 +1,71 @@
 
-import pymysql
+import os
 import pandas as pd
+import pymysql
+
+from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from sqlalchemy.engine import URL
 
 
 # ==========================================
-# 1. MYSQL DATABASE CONNECTION
+# 1. ENVIRONMENT CONFIGURATION
+# ==========================================
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+load_dotenv(os.path.join(BASE_DIR, ".env"))
+
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_USER = os.getenv("DB_USER", "root")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "root")
+DB_NAME = os.getenv("DB_NAME", "supply_chain_db")
+DB_PORT = int(os.getenv("DB_PORT", "3306"))
+
+
+# ==========================================
+# 2. MYSQL DATABASE CONNECTION
 # ==========================================
 
 def get_connection():
+
     connection = pymysql.connect(
-        host="localhost",
-        user="root",
-        password="root",
-        database="supply_chain_db",
-        port=3306
+        host=DB_HOST,
+        user=DB_USER,
+        password=DB_PASSWORD,
+        database=DB_NAME,
+        port=DB_PORT
     )
+
     return connection
 
 
 # ==========================================
-# 2. SQLALCHEMY ENGINE
+# 3. SQLALCHEMY ENGINE
 # ==========================================
 
 def get_engine():
-    engine = create_engine(
-        "mysql+pymysql://root:root@localhost:3306/supply_chain_db"
+
+    database_url = URL.create(
+        drivername="mysql+pymysql",
+        username=DB_USER,
+        password=DB_PASSWORD,
+        host=DB_HOST,
+        port=DB_PORT,
+        database=DB_NAME
     )
+
+    engine = create_engine(database_url)
+
     return engine
 
 
 # ==========================================
-# 3. GENERIC TABLE RETRIEVAL
+# 4. GENERIC TABLE RETRIEVAL
 # ==========================================
 
 def get_table_data(table_name):
+
     allowed_tables = [
         "products",
         "inventory",
@@ -59,16 +90,19 @@ def get_table_data(table_name):
 
     try:
         query = f"SELECT * FROM `{table_name}`"
+
         return pd.read_sql(query, engine)
+
     finally:
         engine.dispose()
 
 
 # ==========================================
-# 4. EXISTING INVENTORY RETRIEVAL
+# 5. INVENTORY RETRIEVAL
 # ==========================================
 
 def get_inventory():
+
     engine = get_engine()
 
     query = """
@@ -86,31 +120,36 @@ def get_inventory():
 
     try:
         return pd.read_sql(query, engine)
+
     finally:
         engine.dispose()
 
 
 # ==========================================
-# 5. EXISTING DASHBOARD METRICS
+# 6. DASHBOARD METRICS
 # ==========================================
 
 def get_dashboard_metrics():
+
     connection = get_connection()
 
     try:
         cursor = connection.cursor()
 
         cursor.execute("SELECT COUNT(*) FROM products")
-        total_products = cursor.fetchone()[0]
+        total_products = (cursor.fetchone() or (0,))[0]
 
         cursor.execute("SELECT COUNT(*) FROM warehouses")
-        total_warehouses = cursor.fetchone()[0]
+        total_warehouses = (cursor.fetchone() or (0,))[0]
 
         cursor.execute("SELECT COUNT(*) FROM suppliers")
-        total_suppliers = cursor.fetchone()[0]
+        total_suppliers = (cursor.fetchone() or (0,))[0]
 
-        cursor.execute("SELECT SUM(available_stock) FROM inventory")
-        total_inventory = cursor.fetchone()[0] or 0
+        cursor.execute(
+            "SELECT SUM(available_stock) FROM inventory"
+        )
+
+        total_inventory = (cursor.fetchone() or (0,))[0]
 
         cursor.close()
 
@@ -120,12 +159,13 @@ def get_dashboard_metrics():
             total_suppliers,
             total_inventory
         )
+
     finally:
         connection.close()
 
 
 # ==========================================
-# 6. ENTERPRISE TABLE RETRIEVAL FUNCTIONS
+# 7. ENTERPRISE TABLE RETRIEVAL FUNCTIONS
 # ==========================================
 
 def get_demand_forecasts():
@@ -165,7 +205,7 @@ def get_distribution_centers():
 
 
 # ==========================================
-# 7. EXISTING BUSINESS DATA FUNCTIONS
+# 8. BUSINESS DATA FUNCTIONS
 # ==========================================
 
 def get_products():
@@ -185,10 +225,11 @@ def get_sales():
 
 
 # ==========================================
-# 8. ENTERPRISE DASHBOARD METRICS
+# 9. ENTERPRISE DASHBOARD METRICS
 # ==========================================
 
 def get_enterprise_metrics():
+
     connection = get_connection()
 
     try:
@@ -214,8 +255,14 @@ def get_enterprise_metrics():
         ]
 
         for table in tables:
-            cursor.execute(f"SELECT COUNT(*) FROM `{table}`")
-            metrics[table] = cursor.fetchone()[0]
+
+            cursor.execute(
+                f"SELECT COUNT(*) FROM `{table}`"
+            )
+
+            metrics[table] = (cursor.fetchone() or (0,))[0]
+
+        cursor.close()
 
         return metrics
 

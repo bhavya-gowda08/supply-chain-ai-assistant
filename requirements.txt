@@ -16,3 +16,6 @@ reportlab
 matplotlib
 openpyxl
 xlrd
+PyJWT
+fastapi
+uvicorn[standard]
